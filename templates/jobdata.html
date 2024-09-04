@@ -6,15 +6,15 @@
         <div>
             <b>Location:</b> {{data['location']}}
         </div>
-        {% if 'salary' in data %}
+         {% if 'salary' in data %}
         <div>
-            <b>Salary:</b>  {{data['salary']}}
+            <b>Salary:</b> {{data['salary']}}
         </div>
         {% endif %}
     </div>
 
     <div class="col-1">
-        <button type="button" class="btn btn-outline-primary">Apply</button>
+        <a href="mailto:muhammadfaizanlite@gmail.com?subject=Application%20for%20{{data['title']}}&body=Myself%3A%20%3Cabout-yourself%3E%0D%0A%0D%0AMy%20Resume%2FCV%20link%3A%20%3Cyour-resume-link%3E%0D%0A%0D%0AMy%20LinkedIn%20Link%3A%20%3Cyour-linkedin-link%3E}" type="button" class="btn btn-outline-primary">Apply</a>
     </div>
     
 </div>

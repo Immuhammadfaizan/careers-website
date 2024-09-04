@@ -10,21 +10,28 @@
             height: 360px;
             width: 100%;
             object-fit: cover;
+            margin-bottom: 16px;
         }
     </style>
 </head>
     
 <body>
+    {% include 'nav.html' %}
+     <img class="img-fluid" id="banner" src="https://7cf40e2c-704d-4d27-a575-7234f1b47e54-00-ddua9gk4eup4.kirk.replit.dev/static/banner.jpeg" alt="Banner Image">
   <div class="container">
     <h1 class="text-center mt-2 mb-4">
         {{company_name}} Careers
     </h1>
-    <img class="img-fluid" id="banner" src="https://7cf40e2c-704d-4d27-a575-7234f1b47e54-00-ddua9gk4eup4.kirk.replit.dev/static/banner.jpeg" alt="Banner Image">
-
-    <h2 class="text-center mt-2 mb-4">About Me</h2>
-    <p class="text-center lead">
-        I am a skilled Python developer from Punjab, Pakistan, focused on web development, data scraping, and automation, with a particular interest in Flask. I have been working on various projects, including web applications that extract data and manipulate files. Currently, I'm committed to improving my Flask skills, working on both frontend and backend tasks, and considering further education in computer science to advance my knowledge in data sciences and artificial intelligence. I also aim to create and possibly sell a comprehensive web application with essential tools.
-    </p>
+      
+      <div class="row" style="border: 32px;">
+       <div class="mb-4 col-md-6">
+        <p class="text-center lead">
+            I am a skilled Python developer from Punjab, Pakistan, focused on web development, data scraping, and automation, with a particular interest in Flask. I have been working on various projects, including web applications that extract data and manipulate files. Currently, I'm committed to improving my Flask skills, working on both frontend and backend tasks, and considering further education in computer science to advance my knowledge in data sciences and artificial intelligence. I also aim to create and possibly sell a comprehensive web application with essential tools.
+        </p>
+       </div>
+        <div class="d-block d-md-block mb-4 col-md-6">
+         <img src="/static/working.jpeg" style="height: 340px">
+        </div>
 
     <h2 class="text-center mt-2 mb-4">
         Your Expectations
@@ -38,10 +45,9 @@
       </div>
     
     <div class="text-center">
-      <button class="btn btn-primary btn-lg">Contact Us</button>
-      <p class="mt-4">Copyright 2024, {{company_name}}</p>
+      <a href="mailto:muhammadfaizanlite@gmail.com?subject=Question%20for%20Job%20Openings&body=I'm%20%3Cyour-name%3E%0D%0A%0D%0AMy%20question(s)%3A%20%3Cyour-question(s)%3E" class="btn btn-primary btn-lg">Contact Us</a>
     </div>
   </div>
-
+  {% include 'footer.html' %}
 </body>
 </html>

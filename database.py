@@ -16,8 +16,14 @@ engine_URL = f'mysql+pymysql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOSTNAME}/{DB_NAM
 engine = create_engine(engine_URL)
 
 def load_the_jobs():
-  with engine.connect() as conn:
-    result = conn.execute(text('select * from jobs'))
-    
-    jobs = [dict(row) for row in result.all()]
-    return jobs
+    try:
+        with engine.connect() as conn:
+            # Execute the query
+            result = conn.execute(text('SELECT * FROM jobs'))
+            rows = result.fetchall()
+            jobs = [dict(row._asdict()) for row in rows]
+            return jobs
+        
+    except Exception as e:
+        print(f"Error: {e}")
+        raise

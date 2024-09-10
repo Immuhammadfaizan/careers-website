@@ -12,7 +12,6 @@ if not DB_USERNAME or not DB_PASSWORD:
     raise ValueError("Database username or password is missing. Please check environment variables.")
 
 engine_URL = f'mysql+pymysql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOSTNAME}/{DB_NAME}?charset=utf8mb4'
-
 engine = create_engine(engine_URL)
 
 def load_the_jobs():
@@ -40,3 +39,27 @@ def show_the_jobs(id):
     except Exception as e:
         print(f"Error: {e}")
         raise
+    
+def final_data(job_id, apply_data):
+    try:
+        with engine.connect() as conn:
+            query = text("""
+                INSERT INTO applications (job_id, full_name, email, linkedin_url, education, work_experience) 
+                VALUES (:job_id, :full_name, :email, :linkedin_url, :education, :work_experience)
+            """)
+            
+            # Execute the query with a dictionary of parameters
+            conn.execute(query, {
+                'job_id': job_id,
+                'full_name': apply_data.get('full_name'),
+                'email': apply_data.get('email'),
+                'linkedin_url': apply_data.get('linkedin'),  # Ensure this key matches the column name
+                'education': apply_data.get('education'),
+                'work_experience': apply_data.get('work_experience')
+            })
+            
+    except Exception as e:
+        print(f"Error: {e}")
+        raise
+
+        

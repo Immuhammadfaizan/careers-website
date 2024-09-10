@@ -27,3 +27,16 @@ def load_the_jobs():
     except Exception as e:
         print(f"Error: {e}")
         raise
+
+def show_the_jobs(id):
+    try:
+        with engine.connect() as conn:
+            result = conn.execute(text(f'SELECT * FROM jobs WHERE id = {id}'))
+            rows = result.fetchall()
+            if len(rows) == 0:
+                return None
+            else:
+                return dict(rows[0]._asdict())
+    except Exception as e:
+        print(f"Error: {e}")
+        raise

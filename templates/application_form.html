@@ -1,36 +1,53 @@
 <h4>Application Form</h4>
 <form class="" action="/job/{{job['id']}}/apply" method="post">
 
-  <div class="mb-2">
-    <label for="">Full Name</label> <br>
-    <input type="text" name="full_name" placeholder="ex. Harry Potter" required>
+    <div class="input-group mb-2"> <br>
+      <span class="input-group-text">Full Name</span>
+        <input type="text" name="full_name" aria-label="Full name" class="form-control" required>
   </div>
 
-  <div class="mb-2">
-    <label for="">Email</label> <br>
-    <input type="text" name="email" placeholder="example@gmail.com" required>
+  <div class="input-group mb-2"> <br>
+    <span class="input-group-text">Email</span>
+      <input type="text" name="email" aria-label="Email" class="form-control" placeholder="" required>
+    <span class="input-group-text" id="basic-addon2">@example.com</span>
   </div>
 
-  <div class="mb-2">
-    <label for="">Education</label> <br>
-    <textarea name="education" rows="8" cols="80" placeholder="Enter your education?"></textarea>
+  <div class="input-group form-floating mb-2"> <br>
+    <span class="input-group-text">Education</span>
+      <textarea class="form-control" name="education" placeholder="Leave your education" id="floatingTextarea"
+      spellcheck="false" style="height: 213px;" required></textarea>
   </div>
 
-  <div class="mb-2">
-    <label for="">Work Experience</label> <br>
-    <textarea name="work_experience" rows="8" cols="80" placeholder="Brief your work experience(s)."></textarea>
+  <div class="input-group form-floating mb-2"> <br>
+    <span class="input-group-text">Work <br>Experience</span>
+      <textarea class="form-control" name="work_experience" placeholder="Leave your education" id="floatingTextarea"
+      spellcheck="false" style="height: 213px;" required></textarea>
   </div>
 
-  <div class="mb-2">
-    <label for="">LinkedIn URL</label> <br>
-    <input type="text" name="linkedin" placeholder="https://www.linkedin.com/example">
+  <div class="mb-3"> <br>
+    <label for="basic-url" class="form-label">LinkedIn URL</label>
+      <div class="input-group">
+        <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+        <input type="text" name="linkedin" class="form-control" id="basic-url"
+            aria-describedby="basic-addon3 basic-addon4" required>
+      </div>
+      <div class="form-text" id="basic-addon4">Example help text goes outside the input group.</div>
+    </div>
+
+  <div class="mb-3"> <br>
+    <label for="basic-url" class="form-label">Resume URL</label>
+      <div class="input-group">
+        <span class="input-group-text" id="basic-addon3">https://example.com/</span>
+        <input type="text" name="resume" class="form-control" id="basic-url"
+            aria-describedby="basic-addon3 basic-addon4">
+      </div>
+    </div>
+
+    <div class="mb-3 form-check"> <br>
+      <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div>
 
-  <div class="mb-2">
-    <label for="">Resume URL</label> <br>
-    <input type="text" name="resume" required>
-  </div>
-
-  <input type="submit" value="Submit">
+  <input type="submit" value="Submit" class="btn btn-primary">
 
 </form>

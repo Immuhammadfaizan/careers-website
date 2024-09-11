@@ -11,27 +11,34 @@
     {% include 'banner.html' %}
     <div class="container">
       <h1 class="text-center mt-2 mb-4">
-            Careers on Cloud
-        </h1>
-      <p>Your application for the job role <b>{{job.title}}</b> has been submitted.</p>
+        Careers on Cloud
+      </h1>
+      <p class="text-center">
+        Your application for the job role <b>{{job.title}}</b> has been submitted.
+        <br> We wish you all the best for your journey ahead!
+      </p>
 
       <h4 class="mb-0">Full Name</h4>
-        <div class="mb-2">{{application['full_name']}}</div>
+      <div class="mb-2">{{application['full_name']}}</div>
 
       <h4 class="mb-0">Email</h4>
-        <div class="mb-2">{{application['email']}}</div>
+      <div class="mb-2">{{application['email']}}</div>
 
       <h4 class="mb-0">Education</h4>
-        <div class="mb-2">{{application['education']}}</div>
+      <div class="mb-2">{{application['education']}}</div>
 
       <h4 class="mb-0">Work Experience</h4>
-        <div class="mb-2">{{application['work_experience']}}</div>
+      <div class="mb-2">{{application['work_experience']}}</div>
 
       <h4 class="mb-0">LinkedIn URL</h4>
-        <div class="mb-2">{{application['linkedin']}}</div>
+      <div class="mb-2"><a href="{{application['linkedin']}}" target="_blank">{{application['linkedin']}}</a></div>
 
       <h4 class="mb-0">Resume URL</h4>
-        <div class="mb-2">{{application['resume']}}</div>
+      <div class="mb-2"><a href="{{application['resume']}}" target="_blank">{{application['resume']}}</a></div>
+
+      <div class="text-center mt-4">
+        <a href="/" class="btn">Back to Home</a>
+      </div>
     </div>
     {% include 'footer.html' %}
   </body>

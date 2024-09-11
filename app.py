@@ -22,6 +22,11 @@ def throw_job_page(id):
   return render_template('jobpage.html', 
                          job=jobs)
 
+@app.route('/api/job/<id>')
+def throw_json(id):
+   jobs = show_the_jobs(id)
+   return jsonify(jobs)
+
 @app.route('/job/<id>/apply', methods=['POST'])
 def apply_for_the_job(id):
   apply = request.form

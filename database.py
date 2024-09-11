@@ -43,10 +43,13 @@ def show_the_jobs(id):
 def final_data(job_id, apply_data):
     try:
         with engine.connect() as conn:
+            # for the beginning the transaction
+            trans = conn.begin()
             query = text("""
                 INSERT INTO applications (job_id, full_name, email, linkedin_url, education, work_experience) 
                 VALUES (:job_id, :full_name, :email, :linkedin_url, :education, :work_experience)
             """)
+            print ("Applying data:", apply_data)
             
             # Execute the query with a dictionary of parameters
             conn.execute(query, {
@@ -57,9 +60,10 @@ def final_data(job_id, apply_data):
                 'education': apply_data.get('education'),
                 'work_experience': apply_data.get('work_experience')
             })
-            
-    except Exception as e:
-        print(f"Error: {e}")
-        raise
-
+            trans.commit()  # Commit the transaction
+            print("Data inserted and committed successfully")
         
+    except Exception as e:
+        trans.rollback()  # Rollback in case of an error
+        print(f"Error during database insertion: {e}")
+        raise
